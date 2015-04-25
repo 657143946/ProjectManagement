@@ -3,6 +3,7 @@ package me.chrislee;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -10,11 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
  * just a Main.java
  */
 @Controller
-@RequestMapping("/main")
-public class Main {
+@RequestMapping("/demo")
+public class DemoController {
 
-    @RequestMapping("/index")
-    public ModelAndView getHtml(@RequestParam String name){
+    @RequestMapping("/page")
+    public ModelAndView page(@RequestParam(defaultValue = "unknown") String name){
         ModelAndView mv = new ModelAndView();
         /**
          * 配置同步渲染使用的参数
@@ -26,6 +27,14 @@ public class Main {
         mv.setViewName("/main.html");
         return mv;
 
+    }
+
+    @RequestMapping("/json")
+    @ResponseBody
+    public DemoModel json(){
+
+        DemoModel data = new DemoModel(true, "SUCCESS", null);
+        return data;
     }
 
     public static void main(String[] args){

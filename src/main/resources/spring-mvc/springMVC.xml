@@ -9,10 +9,12 @@
     <!-- 配置HandlerMapping -->
     <bean id="handlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
         <property name="interceptors">
+            <!-- 添加全局拦截器 -->
             <list>
             </list>
         </property>
     </bean>
+
     <!-- 配置一个适配器 -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
