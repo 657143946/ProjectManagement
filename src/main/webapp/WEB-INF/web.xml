@@ -11,7 +11,12 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:/spring-mvc/springMVC.xml</param-value>
+            <param-value>
+                <!-- 基本配置 -->
+                classpath*:/spring-mvc/springMVC.xml
+                <!--配置页面渲染器-->
+                classpath*:/spring-mvc/springMVC-viewResolver.xml
+            </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
