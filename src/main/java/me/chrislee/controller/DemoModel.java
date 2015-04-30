@@ -1,4 +1,4 @@
-package me.chrislee;
+package me.chrislee.controller;
 
 /**
  * Created by ChrisLee on 15-4-25.

@@ -1,4 +1,4 @@
-package me.chrislee;
+package me.chrislee.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/demo")
 public class DemoController {
 
-    @RequestMapping("/page")
+    @RequestMapping("/page.page")
     public ModelAndView page(@RequestParam(defaultValue = "unknown") String name){
         ModelAndView mv = new ModelAndView();
         /**
@@ -29,15 +29,11 @@ public class DemoController {
 
     }
 
-    @RequestMapping("/json")
+    @RequestMapping("/json.data")
     @ResponseBody
     public DemoModel json(){
 
         DemoModel data = new DemoModel(true, "SUCCESS", null);
         return data;
-    }
-
-    public static void main(String[] args){
-        System.out.println("Project Management !");
     }
 }
