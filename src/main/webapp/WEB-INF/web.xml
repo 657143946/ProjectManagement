@@ -5,6 +5,12 @@
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
 
+    <!-- 清理 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextCleanupListener</listener-class>
+    </listener>
+
+
     <!-- +++++++++++++++++++++++ springMVC +++++++++++++++++++++++ -->
     <servlet>
         <servlet-name>springMVC</servlet-name>
@@ -16,6 +22,8 @@
                 classpath*:/spring-mvc/springMVC.xml
                 <!--配置页面渲染器-->
                 classpath*:/spring-mvc/springMVC-viewResolver.xml
+                <!-- 数据库配置 -->
+                classpath*:/spring-mvc/spring-database.xml
             </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
@@ -24,6 +32,7 @@
         <servlet-name>springMVC</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
 
     <!-- session -->
     <session-config>
