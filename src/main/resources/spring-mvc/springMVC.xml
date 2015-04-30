@@ -11,6 +11,8 @@
         <property name="interceptors">
             <!-- 添加全局拦截器 -->
             <list>
+                <!-- 用来执行Pre注解拦截器 -->
+                <bean class="me.chrislee.decorator.interceptor.InterceptorHandler"/>
             </list>
         </property>
     </bean>
