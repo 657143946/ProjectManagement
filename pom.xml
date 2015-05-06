@@ -21,6 +21,18 @@
             <artifactId>spring-webmvc</artifactId>
             <version>4.0.7.RELEASE</version>
         </dependency>
+        <!-- spring-jdbc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>4.0.7.RELEASE</version>
+        </dependency>
+        <!-- 导入java ee jar 包 -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+        </dependency>
         <!-- 加入beetl 模板渲染引擎 -->
         <dependency>
             <groupId>org.beetl</groupId>
@@ -49,6 +61,13 @@
             <version>1.9.6</version>
         </dependency>
 
+        <!-- 用于获取对象属性 -->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.6</version>
+        </dependency>
+
 
         <!-- mybatis核心包 -->
         <dependency>
@@ -74,7 +93,6 @@
             <artifactId>druid</artifactId>
             <version>1.0.14</version>
         </dependency>
-
 
 
     </dependencies>
