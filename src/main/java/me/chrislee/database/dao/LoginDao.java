@@ -36,7 +36,7 @@ public interface LoginDao {
     @Insert("insert into login(id, email, password) values(#{id}, #{email}, #{password})")
     public int save(LoginEntity login);
 
-    @Delete("delete login where id=#{id}")
+    @Delete("delete from login where id=#{id}")
     public int deleteById(int id);
 
     public List<LoginEntity> findAll();
