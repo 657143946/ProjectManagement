@@ -25,6 +25,10 @@
         <property name="removeAbandonedTimeout" value="180"/>
         <!-- 连接属性 -->
         <property name="connectionProperties" value="clientEncoding=UTF-8"/>
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="timeBetweenEvictionRunsMillis" value="60000" />
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="300000" />
     </bean>
 
 
