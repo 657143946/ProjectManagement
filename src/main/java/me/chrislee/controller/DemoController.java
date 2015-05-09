@@ -1,10 +1,14 @@
 package me.chrislee.controller;
 
+import me.chrislee.database.entity.LoginEntity;
+import me.chrislee.database.service.LoginService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.annotation.Resource;
 
 /**
  * Created by ChrisLee on 15-4-24.
@@ -13,6 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/demo")
 public class DemoController {
+    @Resource
+    private LoginService loginService;
 
     @RequestMapping("/page.page")
     public ModelAndView page(@RequestParam(defaultValue = "unknown") String name) {
@@ -31,7 +37,9 @@ public class DemoController {
     @RequestMapping("/json.data")
     @ResponseBody
     public DemoModel json() {
-        DemoModel data = new DemoModel(true, "SUCCESS", null);
+        DemoModel data = new DemoModel(true, "SUCCESS");
+        LoginEntity login = loginService.getLoginDao().findByEmail("657143946@qq.com");
+        data.add("login", login);
         return data;
     }
 
