@@ -1,4 +1,4 @@
-package me.chrislee.decorator.interceptor;
+package me.chrislee.decorator.interceptor.annotation_interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
