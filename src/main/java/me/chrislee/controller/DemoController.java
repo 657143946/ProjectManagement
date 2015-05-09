@@ -3,6 +3,7 @@ package me.chrislee.controller;
 import me.chrislee.database.entity.LoginEntity;
 import me.chrislee.database.service.LoginService;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -37,6 +38,7 @@ public class DemoController {
 
     @RequestMapping("/json.data")
     @ResponseBody
+    @Transactional
     public DemoModel json() {
         DemoModel data = new DemoModel(true, "SUCCESS");
         LoginEntity login = loginService.getLoginDao().findByEmail("657143946@qq.com");
@@ -44,6 +46,9 @@ public class DemoController {
         loginService.getLoginDao().deleteById(2);
         data.add("logins", logins);
         data.add("login", login);
+        if(true){
+            throw new RuntimeException();
+        }
         return data;
     }
 
