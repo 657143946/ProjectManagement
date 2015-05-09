@@ -43,12 +43,9 @@ public class DemoController {
         DemoModel data = new DemoModel(true, "SUCCESS");
         LoginEntity login = loginService.getLoginDao().findByEmail("657143946@qq.com");
         List<LoginEntity> logins = loginService.getLoginDao().findAll();
-        loginService.getLoginDao().deleteById(2);
+        loginService.testTransaction();
         data.add("logins", logins);
         data.add("login", login);
-        if(true){
-            throw new RuntimeException();
-        }
         return data;
     }
 
