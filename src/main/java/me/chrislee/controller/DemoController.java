@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class DemoController {
 
     @RequestMapping("/page.page")
-    public ModelAndView page(@RequestParam(defaultValue = "unknown") String name){
+    public ModelAndView page(@RequestParam(defaultValue = "unknown") String name) {
         ModelAndView mv = new ModelAndView();
         /**
          * 配置同步渲染使用的参数
@@ -26,14 +26,16 @@ public class DemoController {
          */
         mv.setViewName("/main.html");
         return mv;
-
     }
 
     @RequestMapping("/json.data")
     @ResponseBody
-    public DemoModel json(){
-
+    public DemoModel json() {
         DemoModel data = new DemoModel(true, "SUCCESS", null);
         return data;
+    }
+
+    public static void main(String[] args) {
+
     }
 }
