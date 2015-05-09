@@ -29,6 +29,7 @@ public class DefaultParamsInterceptor implements HandlerInterceptor {
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         if (modelAndView != null){
             modelAndView.addObject("email", request.getSession().getAttribute("email"));
+            modelAndView.addObject("root", request.getContextPath());
         }
 
     }
