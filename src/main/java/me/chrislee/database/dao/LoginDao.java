@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by ChrisLee on 15-4-25.
  *
@@ -32,8 +34,10 @@ public interface LoginDao {
      * 返回插入条数
      */
     @Insert("insert into login(id, email, password) values(#{id}, #{email}, #{password})")
-    public int add(LoginEntity login);
+    public int save(LoginEntity login);
 
     @Delete("delete login where id=#{id}")
     public int deleteById(int id);
+
+    public List<LoginEntity> findAll();
 }

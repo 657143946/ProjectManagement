@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by ChrisLee on 15-4-24.
@@ -39,6 +40,8 @@ public class DemoController {
     public DemoModel json() {
         DemoModel data = new DemoModel(true, "SUCCESS");
         LoginEntity login = loginService.getLoginDao().findByEmail("657143946@qq.com");
+        List<LoginEntity> logins = loginService.getLoginDao().findAll();
+        data.add("logins", logins);
         data.add("login", login);
         return data;
     }

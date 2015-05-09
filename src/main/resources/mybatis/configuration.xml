@@ -3,8 +3,16 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
+    <typeAliases>
+        <typeAlias type="me.chrislee.database.entity.LoginEntity" alias="Login" />
+    </typeAliases>
+
+
+
+
     <mappers>
         <mapper class="me.chrislee.database.dao.LoginDao"/>
+        <mapper resource="mybatis/model/login.xml"/>
     </mappers>
 
 </configuration>
