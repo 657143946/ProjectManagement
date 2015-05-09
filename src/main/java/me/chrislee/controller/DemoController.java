@@ -41,6 +41,7 @@ public class DemoController {
         DemoModel data = new DemoModel(true, "SUCCESS");
         LoginEntity login = loginService.getLoginDao().findByEmail("657143946@qq.com");
         List<LoginEntity> logins = loginService.getLoginDao().findAll();
+        loginService.getLoginDao().deleteById(2);
         data.add("logins", logins);
         data.add("login", login);
         return data;
