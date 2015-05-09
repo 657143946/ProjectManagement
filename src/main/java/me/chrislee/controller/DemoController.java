@@ -24,7 +24,7 @@ public class DemoController {
         /**
          * 设置页面
          */
-        mv.setViewName("/main.html");
+        mv.setViewName("demo/main.html");
         return mv;
     }
 
