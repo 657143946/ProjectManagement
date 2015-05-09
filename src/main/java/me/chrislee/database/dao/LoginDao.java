@@ -5,11 +5,13 @@ import me.chrislee.database.entity.LoginEntity;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created by ChrisLee on 15-4-25.
  *
  */
+@Repository
 public interface LoginDao {
     /**
      * 通过 id 查询
