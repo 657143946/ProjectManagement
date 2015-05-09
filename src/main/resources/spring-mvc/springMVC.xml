@@ -51,6 +51,9 @@
     <mvc:resources location="/image/" mapping="/image/**"/>
     <mvc:resources location="/html/" mapping="/html/**"/>
 
+    <!-- 总错误处理 -->
+    <bean id="exceptionResolver" class="me.chrislee.decorator.interceptor.exception.GlobalExceptionHandler"/>
+
 
     <!-- 启用spring mvc 注解 -->
     <context:annotation-config/>
