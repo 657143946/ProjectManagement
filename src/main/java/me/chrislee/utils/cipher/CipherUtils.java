@@ -36,8 +36,8 @@ public class CipherUtils {
     /**
      * md5单项加密多次
      */
-    public static String md5(String str, int time){
-        for(int i=0; i<time; i++){
+    public static String md5(String str, int time) {
+        for (int i = 0; i < time; i++) {
             str = md5Once(str);
         }
         return str;
