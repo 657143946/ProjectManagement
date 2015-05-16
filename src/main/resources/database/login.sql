@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2015-05-16 16:33:38
+Date: 2015-05-16 16:37:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,11 +24,11 @@ CREATE TABLE `login` (
   `email` varchar(255) NOT NULL,
   `password` varchar(64) NOT NULL,
   `userName` varchar(32) NOT NULL,
-  `sessionId` varchar(128) NOT NULL DEFAULT '',
+  `sessionId` varchar(128) NOT NULL,
   `createTimestamp` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  `lastLoginIp` varchar(32) NOT NULL,
+  `lastLoginIp` varchar(32) NOT NULL DEFAULT '',
   `lastLoginTimestamp` timestamp NOT NULL DEFAULT '2015-01-01 00:00:00',
-  `level` int(11) NOT NULL,
+  `level` int(11) NOT NULL DEFAULT '0',
   `isActive` tinyint(4) NOT NULL DEFAULT '0',
   `activeCode` varchar(128) NOT NULL,
   PRIMARY KEY (`id`),
