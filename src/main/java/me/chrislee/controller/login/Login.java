@@ -1,11 +1,15 @@
 package me.chrislee.controller.login;
 
+import me.chrislee.constant.user.UserLevel;
 import me.chrislee.controller.DemoModel;
 import me.chrislee.database.entity.LoginEntity;
+import me.chrislee.database.service.LoginService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -15,6 +19,9 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/login")
 public class Login {
+    @Resource
+    private LoginService loginService;
+
     /**
      * 首页页面，根据用户是否登陆决定是否跳转首页
      */
@@ -45,11 +52,27 @@ public class Login {
     }
 
     @RequestMapping("/register.data")
-    public DemoModel register(){
+    @ResponseBody
+    public DemoModel register(
+
+    ) {
+        /**
+         * TODO 参数验证
+         */
+        String userName = "userName";
+        String email = "email";
+        String password = "password";
+        String ip = "127.0.0.1";
+        UserLevel level = UserLevel.COMMON;
+        /**
+         * service调用 TODO
+         */
+        LoginEntity login = loginService.register(userName, email, password, level, ip);
+
         DemoModel ret = new DemoModel(true, "SUCCESS");
+        ret.add("login", login);
         return ret;
     }
-
 
 
 }
