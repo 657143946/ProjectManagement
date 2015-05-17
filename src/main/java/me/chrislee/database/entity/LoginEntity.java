@@ -1,5 +1,7 @@
 package me.chrislee.database.entity;
 
+import me.chrislee.utils.id.IdUtils;
+
 import java.sql.Timestamp;
 
 /**
@@ -7,7 +9,7 @@ import java.sql.Timestamp;
  * 登陆表
  */
 public class LoginEntity {
-    private int id;
+    private String id = "L_" + IdUtils.getUuid();
     private String userName;
     private String email;
     private String password;
@@ -17,14 +19,14 @@ public class LoginEntity {
     private Timestamp lastLoginTimestamp;
     private int level;
 
-    private boolean active;
+    private boolean isActive;
     private String activeCode;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -93,11 +95,11 @@ public class LoginEntity {
     }
 
     public boolean isActive() {
-        return active;
+        return isActive;
     }
 
     public void setActive(boolean active) {
-        this.active = active;
+        this.isActive = active;
     }
 
     public String getActiveCode() {
