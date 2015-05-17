@@ -11,12 +11,14 @@ import java.io.IOException;
 
 /**
  * Created by ChrisLee on 15-5-9.
+ * 全局出错处理
  */
 public class GlobalExceptionHandler implements HandlerExceptionResolver {
     private static final ModelAndView NONE = new ModelAndView();
 
     @Override
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
+        ex.printStackTrace();
         if (request.getServletPath().endsWith(".data")){
             /**
              * 返回数据
@@ -35,7 +37,7 @@ public class GlobalExceptionHandler implements HandlerExceptionResolver {
              * 重定向到错误页面
              */
             try {
-                response.sendRedirect(request.getContextPath()+"/html/about.html");
+                response.sendRedirect(request.getContextPath()+"/error/404.page");
             } catch (IOException e) {
                 e.printStackTrace();
             }
