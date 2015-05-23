@@ -11,7 +11,7 @@ public class CipherUtils {
     /**
      * MD5单项加密一次
      */
-    public static String md5Once(String str) {
+    public static String md5(String str) {
         MessageDigest messageDigest = null;
         try {
             messageDigest = MessageDigest.getInstance("MD5");
@@ -38,8 +38,15 @@ public class CipherUtils {
      */
     public static String md5(String str, int time) {
         for (int i = 0; i < time; i++) {
-            str = md5Once(str);
+            str = md5(str);
         }
         return str;
+    }
+
+    /**
+     * 密码加密
+     */
+    public static String makePassword(String password) {
+        return md5(password, 14);
     }
 }

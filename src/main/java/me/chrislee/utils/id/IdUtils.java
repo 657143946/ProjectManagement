@@ -16,6 +16,6 @@ public class IdUtils {
     }
 
     public static String getId() {
-        return getUuid() + CipherUtils.md5Once(String.valueOf(System.currentTimeMillis()) + new Random().nextFloat());
+        return getUuid() + CipherUtils.md5(String.valueOf(System.currentTimeMillis()) + new Random().nextFloat());
     }
 }
