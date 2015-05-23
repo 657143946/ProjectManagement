@@ -14,7 +14,7 @@ public interface LoginDao {
      * 插入login记录
      * 返回插入条数
      */
-    @Insert("insert into login(id, userName, email, password, sessionId, lastLoginIp, lastLoginTimestamp, level, isActive, activeCode) " +
-            "values(#{id}, #{userName}, #{email}, #{password}, #{sessionId}, #{lastLoginIp}, #{lastLoginTimestamp}, #{level}, #{isActive}, #{activeCode})")
+    @Insert("insert into login(id, userName, email, password, sessionId, lastLoginIp, lastLoginTimestamp, level, isActive, activeCode, createTimestamp) " +
+            "values(#{id}, #{userName}, #{email}, #{password}, #{sessionId}, #{lastLoginIp}, #{lastLoginTimestamp}, #{level}, #{isActive}, #{activeCode}, #{createTimestamp})")
     public int save(LoginEntity login);
 }
