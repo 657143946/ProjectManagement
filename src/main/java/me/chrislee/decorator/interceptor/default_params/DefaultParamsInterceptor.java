@@ -2,6 +2,7 @@ package me.chrislee.decorator.interceptor.default_params;
 
 import me.chrislee.annotations.Pre;
 import me.chrislee.annotations.utils.AnnotationFinder;
+import me.chrislee.database.entity.LoginEntity;
 import me.chrislee.decorator.interceptor.annotation_interceptor.Interceptor;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -28,7 +29,11 @@ public class DefaultParamsInterceptor implements HandlerInterceptor {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         if (modelAndView != null){
-            modelAndView.addObject("email", request.getSession().getAttribute("email"));
+            LoginEntity login = (LoginEntity)request.getSession().getAttribute("login");
+            if (login != null){
+                modelAndView.addObject("userName", login.getUserName());
+                modelAndView.addObject("email", login.getEmail());
+            }
             modelAndView.addObject("root", request.getContextPath());
         }
 
